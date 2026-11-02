@@ -7,10 +7,10 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { getClasses, type GymClass } from "@/lib/fitness.functions";
 
-import heroImage from "/images/hero.jpg";
-import ananyaImage from "/images/trainers/ananya.jpg";
-import rohitImage from "/images/trainers/rohit.jpg";
-import vikramImage from "/images/trainers/vikram.jpg";
+const heroImage = "/images/hero.jpg";
+const ananyaImage = "/images/trainers/ananya.jpg";
+const rohitImage = "/images/trainers/rohit.jpg";
+const vikramImage = "/images/trainers/vikram.jpg";
 
 const classesQuery = queryOptions({
   queryKey: ["classes"],
