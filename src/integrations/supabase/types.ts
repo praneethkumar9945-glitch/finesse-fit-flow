@@ -14,7 +14,173 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bookings: {
+        Row: {
+          class_id: string
+          created_at: string
+          id: string
+          scheduled_at: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          class_id: string
+          created_at?: string
+          id?: string
+          scheduled_at: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          class_id?: string
+          created_at?: string
+          id?: string
+          scheduled_at?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookings_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: false
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      classes: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          duration_minutes: number
+          id: string
+          image_url: string | null
+          intensity: string
+          name: string
+          seats: number
+          sort_order: number
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description: string
+          duration_minutes?: number
+          id?: string
+          image_url?: string | null
+          intensity?: string
+          name: string
+          seats?: number
+          sort_order?: number
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          duration_minutes?: number
+          id?: string
+          image_url?: string | null
+          intensity?: string
+          name?: string
+          seats?: number
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      membership_plans: {
+        Row: {
+          created_at: string
+          features: Json
+          highlight: boolean
+          id: string
+          name: string
+          period: string
+          price_inr: number
+          sort_order: number
+          tagline: string
+        }
+        Insert: {
+          created_at?: string
+          features?: Json
+          highlight?: boolean
+          id?: string
+          name: string
+          period?: string
+          price_inr: number
+          sort_order?: number
+          tagline?: string
+        }
+        Update: {
+          created_at?: string
+          features?: Json
+          highlight?: boolean
+          id?: string
+          name?: string
+          period?: string
+          price_inr?: number
+          sort_order?: number
+          tagline?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          goal: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          goal?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          goal?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      workout_logs: {
+        Row: {
+          activity_type: string
+          calories_burned: number
+          created_at: string
+          duration_minutes: number
+          id: string
+          notes: string | null
+          performed_at: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          activity_type?: string
+          calories_burned?: number
+          created_at?: string
+          duration_minutes?: number
+          id?: string
+          notes?: string | null
+          performed_at?: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          activity_type?: string
+          calories_burned?: number
+          created_at?: string
+          duration_minutes?: number
+          id?: string
+          notes?: string | null
+          performed_at?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
